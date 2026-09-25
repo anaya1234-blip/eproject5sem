@@ -397,7 +397,7 @@ const Home = () => {
       {/* ════════════════════════════════════════════════════════
           FEATURES GRID
       ════════════════════════════════════════════════════════ */}
-      <section className="py-28 bg-gray-50">
+      <section id="features" className="py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -479,8 +479,7 @@ const Home = () => {
                 <img
                   src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=90&fit=crop"
                   alt="Workout"
-                  className="w-full h-80 object-cover"
-                  loading="lazy"
+                  style={{ width: '100%', height: 320, objectFit: 'cover', display: 'block' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent" />
                 {/* Overlay badge */}
@@ -665,9 +664,8 @@ const Home = () => {
                   <img
                     src={item.img}
                     alt={item.label}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    style={{ minHeight: item.tall ? 280 : 130 }}
-                    loading="lazy"
+                    style={{ width: '100%', height: item.tall ? 280 : 130, objectFit: 'cover', display: 'block', minHeight: item.tall ? 280 : 130 }}
+                    className="group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-2 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -684,7 +682,7 @@ const Home = () => {
       {/* ════════════════════════════════════════════════════════
           HOW IT WORKS
       ════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-gray-50">
+      <section id="how" className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -732,8 +730,13 @@ const Home = () => {
                 whileHover={{ y: -10 }}
                 className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-400 border border-gray-100 group"
               >
-                <div className="relative h-44 overflow-hidden">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <div className="relative overflow-hidden" style={{ height: 176, backgroundColor: '#cbd5e1' }}>
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    className="group-hover:scale-105 transition-transform duration-500"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
                   <div className={`absolute top-4 left-4 w-12 h-12 bg-gradient-to-br ${item.color} rounded-2xl flex items-center justify-center shadow-lg`}>
                     {item.icon}
@@ -755,7 +758,7 @@ const Home = () => {
       {/* ════════════════════════════════════════════════════════
           TESTIMONIALS
       ════════════════════════════════════════════════════════ */}
-      <section className="py-24 bg-white">
+      <section id="testimonials" className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -802,8 +805,7 @@ const Home = () => {
           <img
             src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1920&q=85&fit=crop"
             alt="CTA background"
-            className="w-full h-full object-cover"
-            loading="lazy"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', position: 'absolute', top: 0, left: 0 }}
           />
           <div className="absolute inset-0 bg-gradient-to-br from-slate-950/92 via-slate-900/85 to-emerald-950/80" />
         </div>

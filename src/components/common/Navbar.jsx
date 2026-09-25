@@ -113,11 +113,27 @@ export default function Navbar() {
           {/* ── Desktop Nav — public links only ── */}
           <div className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map(({ name, path }) => {
-              const active = location.pathname === path;
+              const isHash = path.includes('#');
+              const active = !isHash && location.pathname === path;
+
+              const handleClick = (e) => {
+                if (isHash) {
+                  e.preventDefault();
+                  const id = path.split('#')[1];
+                  if (location.pathname === '/') {
+                    const el = document.getElementById(id);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  } else {
+                    window.location.href = path;
+                  }
+                }
+              };
+
               return (
                 <Link
                   key={name}
                   to={path}
+                  onClick={handleClick}
                   className={`relative px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200 ${
                     active
                       ? 'text-white'
